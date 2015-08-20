@@ -8,6 +8,12 @@ router.get('/', function(req, res, next) {
 router.post('/submit', function(req, res, next){
   res.render('index', {name: req.body.email});
   console.log(req.body.email);
+  res.redirect('/success');
+  res.render('success', {success: 'success'})
 });
+
+
+
+
 
 module.exports = router;
