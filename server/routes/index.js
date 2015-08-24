@@ -5,15 +5,13 @@ router.get('/', function(req, res, next) {
   res.render('index', { title: 'Express' });
 });
 
-router.post('/submit', function(req, res, next){
-  res.render('index', {name: req.body.email});
-  console.log(req.body.email);
-  res.redirect('/success');
-  res.render('success', {success: 'success'})
+router.get('/success', function(req, res, next){
+  res.render('success', {success: 'success'});
 });
 
-
-
-
+router.post('/submit', function(req, res, next){
+  res.redirect('success', {success: 'success'});
+  console.log(req.body.email);
+});
 
 module.exports = router;
